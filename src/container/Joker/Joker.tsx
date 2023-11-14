@@ -35,6 +35,7 @@ const Joker = () => {
   const fetchJokes = async () =>{
     try {
       const jokes = await request();
+      void fetchJoke();
       setJokes(jokes);
     } catch (e) {
       alert('Error ' + e);
@@ -42,7 +43,6 @@ const Joker = () => {
   };
 
   useEffect(() => {
-    void fetchJoke();
     void fetchJokes();
   }, []);
 
@@ -53,6 +53,7 @@ const Joker = () => {
   return (
     <div className="text-center">
       <h1>JOKER</h1>
+      <p>{joke?.value}</p>
       {
         jokes.map((joke, index) => <MemoedJokeItem key={index} joke={joke}/>)
       }
