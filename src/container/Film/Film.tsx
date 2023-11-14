@@ -8,7 +8,6 @@ const Film = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [nameMovie, setNameMovie] = useState('');
 
-
   const changeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNameMovie(event.target.value);
   };
@@ -64,7 +63,7 @@ const Film = () => {
 
 
   return (
-    <div className="container mx-auto my-3.5">
+    <>
       <Form
         nameMovie={nameMovie}
         changeName={changeName}
@@ -81,7 +80,7 @@ const Film = () => {
             />
         ))
       }
-    </div>
+    </>
   );
 };
 
