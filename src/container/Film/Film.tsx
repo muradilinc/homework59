@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Movie} from '../../types';
 import {Trash} from '@phosphor-icons/react';
 import Form from '../../components/Form/Form';
+import MovieItem from '../../components/MovieItem/MovieItem';
 
 const Film = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -63,8 +64,6 @@ const Film = () => {
   }, []);
 
 
-  console.log(movies);
-
   return (
     <div>
       <Form
@@ -73,17 +72,7 @@ const Film = () => {
         addMovie={() => addMovie}
       />
       {
-        movies.map((movie) => (
-          <div key={movie.id}>
-            <input
-              type="text"
-              value={movie.name}
-              placeholder={movie.name}
-              onChange={(event) => renameMovie(event, movie.id)}
-            />
-            <Trash size={32} onClick={() => deleteMovie(movie.id)} />
-          </div>
-        ))
+        movies.map((movie) => <MovieItem movie={movie} renameMovie={renameMovie} deleteMovie={deleteMovie}/>)
       }
     </div>
   );
