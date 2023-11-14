@@ -2,7 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import {Movie} from '../../types';
 import Form from '../../components/Form/Form';
-import MovieItem from '../../components/MovieItem/MovieItem';
+import MemoMovieItem from '../../components/MovieItem/MemoMovieItem';
 
 const Film = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -70,8 +70,16 @@ const Film = () => {
         changeName={changeName}
         addMovie={addMovie}
       />
+      <h4 className="mt-4 text-2xl">To watch list:</h4>
       {
-        movies.map((movie) => <MovieItem movie={movie} renameMovie={renameMovie} deleteMovie={deleteMovie}/>)
+        movies.map((movie) => (
+            <MemoMovieItem
+              key={movie.id}
+              movie={movie}
+              renameMovie={renameMovie}
+              deleteMovie={() => deleteMovie(movie.id)}
+            />
+        ))
       }
     </div>
   );
