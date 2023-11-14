@@ -64,7 +64,7 @@ const Film = () => {
 
 
   return (
-    <div>
+    <div className="container mx-auto my-3.5">
       <Form
         nameMovie={nameMovie}
         changeName={changeName}
