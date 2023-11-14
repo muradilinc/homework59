@@ -1,8 +1,10 @@
+import Film from './container/Film/Film';
+
 const App = () => {
     return (
-        <div>
-
-        </div>
+        <>
+          <Film/>
+        </>
     );
 };
 
