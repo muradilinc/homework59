@@ -1,7 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import {useEffect, useState} from 'react';
 import {Movie} from '../../types';
-import {Trash} from '@phosphor-icons/react';
 import Form from '../../components/Form/Form';
 import MovieItem from '../../components/MovieItem/MovieItem';
 
@@ -68,8 +67,8 @@ const Film = () => {
     <div>
       <Form
         nameMovie={nameMovie}
-        changeName={() => changeName}
-        addMovie={() => addMovie}
+        changeName={changeName}
+        addMovie={addMovie}
       />
       {
         movies.map((movie) => <MovieItem movie={movie} renameMovie={renameMovie} deleteMovie={deleteMovie}/>)
